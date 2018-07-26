@@ -25,11 +25,11 @@ def next_pyco_leapyear_monday(start_year):
         year = next_leap_year(year + 1)
     return year
 
-if __name__ == "__main__":
+def main(args):
     year = None
     try:
         opts, args = getopt.getopt(
-            sys.argv[1:],
+            args[1:],
             "hy:o:",
             ["start-year="])
     except getopt.GetoptError:
@@ -48,3 +48,6 @@ if __name__ == "__main__":
     print (("Next year with a Central Ohio Python User Group meetup "
         "on a leapyear end of February: %d") %
         next_pyco_leapyear_monday(year))
+
+if __name__ == "__main__":
+    main(sys.argv)
