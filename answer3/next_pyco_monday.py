@@ -8,12 +8,11 @@ def is_leap_year(year):
 def next_leap_year(start_year):
     year = start_year
     while not is_leap_year(year):
-        year = year + 1
+        year += 1
     return year
 
 def feb_29_is_monday(year):
     d = datetime.date(year, 2, 29)
-    # print "Weekday for %d: %d" % (year, d.weekday())
     if d.weekday() == 0:
         return True
     else:
