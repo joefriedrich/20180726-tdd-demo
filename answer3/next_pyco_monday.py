@@ -24,9 +24,7 @@ def next_pyco_leapyear_monday(start_year):
         year = next_leap_year(year + 1)
     return year
 
-def main(args):
-    year = None
-
+def get_start_year_from_arguments():
     #---Start command line options logic---
     try:
         opts, args = getopt.getopt(
@@ -41,11 +39,15 @@ def main(args):
             print 'python next_pyco_monday.py -y <start_year>'
             sys.exit()
         elif opt in ("-y", "--start-year"):
-            year = int(arg)
-    if not year:
+            start_year = int(arg)
+    if not start_year:
         print 'python next_pyco_monday.py -y <start_year>'
         sys.exit(2)
     #---End command line options logic---
+    return start_year
+
+def main(args):
+    year = get_start_year_from_arguments()
 
     print 'Starting is %d' % year
     print (("Next year with a Central Ohio Python User Group meetup "
